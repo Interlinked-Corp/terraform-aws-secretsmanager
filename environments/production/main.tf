@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "il01-terraform-states"
-    key = "il01/secretsmanager/production/terraform.tfstate"
+    key    = "il01/secretsmanager/production/terraform.tfstate"
     region = "us-east-2"
   }
 }
