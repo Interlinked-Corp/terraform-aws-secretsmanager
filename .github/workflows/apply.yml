@@ -31,5 +31,8 @@ jobs:
           workflow: plan.yml
           pr: ${{github.event.pull_request.number}}
 
+      - name: Move tfplan to cwd
+        run: mv ./terraform-plan/tfplan ./tfplan
+
       - name: Apply plan
-        run: terraform apply -input=false -auto-approve -no-color ./terraform-plan/tfplan
+        run: terraform apply -input=false -auto-approve -no-color tfplan
