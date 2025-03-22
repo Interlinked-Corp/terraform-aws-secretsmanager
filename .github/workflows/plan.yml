@@ -72,10 +72,10 @@ jobs:
         run: exit 1
 
       - name: Persist plan to file
-        run: echo "${{ steps.plan.outputs.stdout }}" > ./tfplan
+        run: terraform plan -no-color -input=false -out=tfplan
       
       - name: Upload tf plan
         uses: actions/upload-artifact@v4
         with:
           name: terraform-plan
-          path: ./tfplan
+          path: tfplan
