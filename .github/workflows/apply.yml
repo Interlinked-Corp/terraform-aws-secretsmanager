@@ -33,6 +33,7 @@ jobs:
           
 
       - name: Display structure of downloaded files
-        run: ls -R ./environments/production
+        run: ls -R ./../ && cat ./tfplan.txt
+
 
       
