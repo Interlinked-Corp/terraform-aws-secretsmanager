@@ -1,7 +1,7 @@
 name: Terraform Apply
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 env:
@@ -30,10 +30,6 @@ jobs:
           path: ./environments/production
           workflow: plan.yml
           pr: ${{github.event.pull_request.number}}
-          
 
-      - name: Display structure of downloaded files
-        run: ls -R ./../ && cat ./tfplan.txt
-
-
-      
+      - name: Apply plan
+        run: terraform apply -input=false -auto-approve -no-color ./terraform-plan/tfplan.txt
